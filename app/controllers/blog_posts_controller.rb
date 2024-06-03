@@ -9,6 +9,10 @@ class BlogPostsController < ApplicationController
     redirect_to root_path
   end
 
+  def new
+    @blog_post = BlogPost.new
+  end
+
   def create
     @blog_post = BlogPost.new
     @blog_post.title = params[:blog_post][:title]
