@@ -14,11 +14,12 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    @blog_post = BlogPost.new
-    @blog_post.title = params[:blog_post][:title]
-    @blog_post.body = params[:blog_post][:body]
-    @blog_post.save!
-    redirect_to blog_post_path(@blog_post)
+    @blog_post = BlogPost.new(blog_post_params)
+    if @blog_post.save
+      redirect_to @blog_post
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
