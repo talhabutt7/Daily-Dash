@@ -5,6 +5,8 @@ class BlogPostsController < ApplicationController
   end
   def show
     @blog_post = BlogPost.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def create
@@ -34,5 +36,5 @@ class BlogPostsController < ApplicationController
   def blog_post_params
     params.require(:blog_post).permit(:title, :body)
   end
-  
+
 end
