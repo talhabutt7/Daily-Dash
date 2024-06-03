@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   # resources :blog_posts
 
-  get "/blog_posts/:id", to: "blog_posts#show"
+  get "/blog_posts/:id", to: "blog_posts#show", as: "blog_post"
 
 end
