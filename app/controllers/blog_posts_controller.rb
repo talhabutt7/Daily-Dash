@@ -22,6 +22,10 @@ class BlogPostsController < ApplicationController
     end
   end
 
+  def edit
+    @blog_post = BlogPost.find(params[:id])
+  end
+
   def destroy
     blog_post = BlogPost.find(params[:id])
     blog_post.destroy!
