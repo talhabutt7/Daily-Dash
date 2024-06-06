@@ -9,4 +9,7 @@ class BlogPost < ApplicationRecord
     published_at.nil?
   end
 
+  def published?
+    published_at? && published_at <= Time.zone.now
+  end
 end
