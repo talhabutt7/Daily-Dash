@@ -8,8 +8,11 @@ class BlogPost < ApplicationRecord
   def draft?
     published_at.nil?
   end
-
   def published?
     published_at? && published_at <= Time.zone.now
+  end
+
+  def schedule?
+    published_at? && published_at >= Time.zone.now
   end
 end
