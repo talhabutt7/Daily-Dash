@@ -12,7 +12,7 @@ class BlogPost < ApplicationRecord
     published_at? && published_at <= Time.zone.now
   end
 
-  def schedule?
+  def scheduled?
     published_at? && published_at >= Time.zone.now
   end
 end
