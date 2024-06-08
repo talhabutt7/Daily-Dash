@@ -64,6 +64,10 @@ class BlogPostsController < ApplicationController
     @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted
   end
 
+  def set_blog_posts_by_title
+    @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted
+  end
+
   def set_blog_post
     @blog_post = user_signed_in? ? BlogPost.find(params[:id]) : BlogPost.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
