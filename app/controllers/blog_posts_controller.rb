@@ -44,6 +44,10 @@ class BlogPostsController < ApplicationController
     params.require(:blog_post).permit(:title, :content, :published_at)
   end
 
+  def user_signed_in?
+    user_signed_in?
+  end
+
   def set_blog_post
     @blog_post = user_signed_in? ? BlogPost.find(params[:id]) : BlogPost.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
