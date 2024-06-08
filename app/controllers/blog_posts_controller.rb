@@ -52,6 +52,10 @@ class BlogPostsController < ApplicationController
     redirect_to root_path, alert: 'Please sign in.' unless user_signed_in?
   end
 
+  def set_blog_posts
+    @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted
+  end
+
   def set_blog_post
     @blog_post = user_signed_in? ? BlogPost.find(params[:id]) : BlogPost.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
