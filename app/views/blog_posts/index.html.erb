@@ -1,20 +1,27 @@
-<div>
+<div class="mb-4">
   <% if user_signed_in? %>
-    <%= link_to "NEW", new_blog_post_path %>
+    <%= link_to "NEW", new_blog_post_path, class: "inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
   <% end %>
 </div>
-<h1>Hello</h1>
 
-<% @blog_posts.each do |blog_post| %>
-  <div>
-    <h2><%= link_to blog_post.title, blog_post %></h2>
-    <% if blog_post.draft? %>
-      <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
-    <% elsif blog_post.scheduled? %>
-      <div class="p-2 rounded bg-gray-100 text-gray-900">Scheduled</div>
-    <% elsif blog_post.published? %>
-      <div class="p-2 rounded bg-gray-100 text-gray-900">Published</div>
-    <% end %>
-    <%= blog_post.content %>
-  </div>
-<% end %>
+<h1 class="text-4xl font-bold mb-4">Blog Posts</h1>
+
+<div class="space-y-4">
+  <% @blog_posts.each do |blog_post| %>
+    <div class="p-4 bg-white rounded shadow">
+      <h2 class="text-2xl font-semibold"><%= link_to blog_post.title, blog_post, class: "text-blue-500 hover:text-blue-700" %></h2>
+      <div class="mt-2 text-sm text-gray-600">
+        <% if blog_post.draft? %>
+          <span class="px-2 py-1 rounded bg-gray-100 text-gray-900">Draft</span>
+        <% elsif blog_post.scheduled? %>
+          <span class="px-2 py-1 rounded bg-gray-100 text-gray-900">Scheduled</span>
+        <% elsif blog_post.published? %>
+          <span class="px-2 py-1 rounded bg-gray-100 text-gray-900">Published</span>
+        <% end %>
+      </div>
+      <div class="mt-4">
+        <%= simple_format blog_post.content, class: "text-gray-700" %>
+      </div>
+    </div>
+  <% end %>
+</div>
