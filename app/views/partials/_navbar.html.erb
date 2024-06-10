@@ -1,12 +1,14 @@
-<div class="m-6 flex justify-between items-center">
-  <div class="flex space-x-4">
-    <%= link_to "HOME", root_path, class: "text-blue-500 hover:text-blue-700" %>
+<nav class="flex justify-between items-center py-4">
+  <div class="flex items-center space-x-6">
+    <%= link_to "Home", root_path, class: "text-gray-800 hover:text-blue-600 font-semibold" %>
+  </div>
+  <div class="flex items-center space-x-4">
     <% if user_signed_in? %>
-      <%= link_to "Profile", edit_user_registration_path, class: "text-blue-500 hover:text-blue-700" %>
+      <%= link_to "Profile", edit_user_registration_path, class: "text-gray-800 hover:text-blue-600" %>
       <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
     <% else %>
-      <%= link_to "Log in", new_user_session_path, class: "text-blue-500 hover:text-blue-700" %>
-      <%= link_to "Sign up", new_user_registration_path, class: "text-green-500 hover:text-green-700" %>
+      <%= link_to "Log in", new_user_session_path, class: "text-gray-800 hover:text-blue-600" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
     <% end %>
   </div>
-</div>
+</nav>
