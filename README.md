@@ -82,3 +82,9 @@ draft: Returns posts that are not yet published.
 published: Returns posts that are published.
 scheduled: Returns posts that are scheduled for future publication.
 
+Instance Methods
+draft?: Returns true if the post is a draft.
+published?: Returns true if the post is published.
+scheduled?: Returns true if the post is scheduled.
+
+
