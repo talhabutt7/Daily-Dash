@@ -43,3 +43,17 @@ Ensure you have the following installed on your system:
    ```sh
    git clone https://github.com/your-username/dailydrift.git
    cd dailydrift
+
+2. Install the dependencies:
+bundle install
+yarn install
+
+3. Set up the database:
+rails db:create
+rails db:migrate
+
+4. Start the Rails server:
+rails server
+
+5. Open your browser and navigate to http://localhost:3000.
+
