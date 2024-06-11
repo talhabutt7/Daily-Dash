@@ -72,3 +72,13 @@ title: The title of the blog post.
 content: The rich text content of the blog post.
 published_at: The date and time when the post is published.
 
+
+Validations
+title and content must be present.
+
+Scopes
+sorted: Orders posts by published date (newest first) and updated date.
+draft: Returns posts that are not yet published.
+published: Returns posts that are published.
+scheduled: Returns posts that are scheduled for future publication.
+
