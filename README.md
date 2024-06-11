@@ -88,3 +88,18 @@ published?: Returns true if the post is published.
 scheduled?: Returns true if the post is scheduled.
 
 
+Controllers
+BlogPostsController
+The BlogPostsController handles CRUD operations for BlogPost objects.
+
+Actions
+index: Displays a list of all blog posts. Shows all posts if the user is signed in, otherwise only published posts.
+show: Displays a single blog post.
+new: Renders a form for creating a new blog post.
+create: Creates a new blog post with the provided parameters.
+edit: Renders a form for editing an existing blog post.
+update: Updates an existing blog post with the provided parameters.
+destroy: Deletes a blog post.
+Private Methods
+set_blog_post: Finds a blog post based on the user's sign-in status and the post's publication status.
+blog_post_params: Permits the parameters title, content, and published_at.
