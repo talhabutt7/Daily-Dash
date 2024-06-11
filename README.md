@@ -115,3 +115,8 @@ edit.html.erb: Renders the form for editing a blog post.
 new.html.erb: Renders the form for creating a new blog post.
 _form.html.erb: The shared form partial used for new and edit actions.
 _navbar.html.erb: The navigation bar partial.
+
+
+Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/talhabutt7/dailydrift. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
