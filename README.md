@@ -103,3 +103,15 @@ destroy: Deletes a blog post.
 Private Methods
 set_blog_post: Finds a blog post based on the user's sign-in status and the post's publication status.
 blog_post_params: Permits the parameters title, content, and published_at.
+
+
+Views
+The views are organized to provide a clean and modern user interface using Tailwind CSS.
+
+application.html.erb: The main layout file.
+index.html.erb: Displays the list of blog posts.
+show.html.erb: Displays a single blog post.
+edit.html.erb: Renders the form for editing a blog post.
+new.html.erb: Renders the form for creating a new blog post.
+_form.html.erb: The shared form partial used for new and edit actions.
+_navbar.html.erb: The navigation bar partial.
