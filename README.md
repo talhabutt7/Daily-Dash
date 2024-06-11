@@ -1,24 +1,45 @@
-# README
+# DailyDrift
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DailyDrift is a blogging platform built with Ruby on Rails and styled using Tailwind CSS. It allows users to create, edit, publish, and manage blog posts with ease. The application supports user authentication and includes rich text editing for content creation.
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+- [Features](#features)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+- [Usage](#usage)
+- [Models](#models)
+    - [BlogPost](#blogpost)
+- [Controllers](#controllers)
+    - [BlogPostsController](#blogpostscontroller)
+- [Views](#views)
+- [Contributing](#contributing)
+- [License](#license)
 
-* System dependencies
+## Features
 
-* Configuration
+- User authentication
+- Create, edit, delete, and view blog posts
+- Rich text editing for blog content
+- Draft, scheduled, and published post statuses
+- Responsive and modern UI using Tailwind CSS
 
-* Database creation
+## Getting Started
 
-* Database initialization
+### Prerequisites
 
-* How to run the test suite
+Ensure you have the following installed on your system:
 
-* Services (job queues, cache servers, search engines, etc.)
+- Ruby (>= 3.0)
+- Rails (>= 7.0)
+- PostgreSQL (or any other preferred database)
+- Node.js and Yarn
 
-* Deployment instructions
+### Installation
 
-* ...
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/your-username/dailydrift.git
+   cd dailydrift
