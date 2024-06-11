@@ -57,3 +57,8 @@ rails server
 
 5. Open your browser and navigate to http://localhost:3000.
 
+Usage
+Sign up for an account or log in if you already have one.
+Create a new blog post by clicking the "New Post" button.
+Fill in the title and content, and set the publish date if needed.
+Save the post. It will be displayed on the main page according to its status (Draft, Scheduled, Published).
