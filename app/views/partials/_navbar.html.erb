@@ -1,3 +1,26 @@
 <!-- app/views/shared/_navbar.html.erb -->
 <nav class="bg-white shadow-lg py-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center">
+      <a href="/" class="text-2xl font-bold text-gray-800"></a>
+    </div>
+    <div class="hidden md:flex items-center space-x-6">
+      <% if user_signed_in? %>
+        <a href="#" class="text-gray-600 hover:text-green-500">Dashboard</a>
+        <a href="#" class="text-gray-600 hover:text-green-500">Tasks</a>
+        <a href="#" class="text-gray-600 hover:text-green-500">Profile</a>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-gray-600 hover:text-green-500" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "text-gray-600 hover:text-green-500" %>
+        <%= link_to "Register", new_user_registration_path, class: "text-gray-600 hover:text-green-500" %>
+      <% end %>
+    </div>
+    <div class="md:hidden flex items-center">
+      <button class="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
 </nav>
