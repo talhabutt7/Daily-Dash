@@ -66,10 +66,13 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Devise
 gem "devise", "~> 4.9"
 
+# CSS
 gem "tailwindcss-rails", "~> 2.6"
 
+# Amazon S3
 gem "aws-sdk-s3", require: false
 
 # Background processing
