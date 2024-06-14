@@ -76,4 +76,4 @@ gem "tailwindcss-rails", "~> 2.6"
 gem "aws-sdk-s3", require: false
 
 # Background processing
-gem 'sidekiq', "~> 6.4"
+gem 'sidekiq'
