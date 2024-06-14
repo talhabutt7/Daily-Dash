@@ -7,7 +7,7 @@
       <% if user_signed_in? %>
 <!--        <a href="#" class="text-gray-600 hover:text-green-500">Dashboard</a>-->
 <!--        <a href="#" class="text-gray-600 hover:text-green-500">Tasks</a>-->
-        <a href="#" class="text-gray-600 hover:text-green-500">Profile</a>
+        <%= link_to "Profile", edit_user_registration_path, class: "text-gray-600 hover:text-green-500" %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-gray-600 hover:text-green-500" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, class: "text-gray-600 hover:text-green-500" %>
