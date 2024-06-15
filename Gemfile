@@ -77,3 +77,7 @@ gem "aws-sdk-s3", require: false
 
 # Background processing
 gem 'sidekiq'
+
+# Redis
+gem 'redis'
+
