@@ -38,6 +38,21 @@ class BlogPostsController < ApplicationController
     redirect_to root_path, notice: 'Blog post was successfully destroyed.'
   end
 
+  def like
+    @blog_post = BlogPost.find(params[:id])
+    unless @blog_post.likes.exists?(user_id: current_user.id)
+      @blog_post.likes.create(user: current_user)
+    end
+    redirect_to @blog_post
+  end
+
+  def unlike
+    @blog_post = BlogPost.find(params[:id])
+    @like = @blog_post.likes.find_by(user: current_user)
+    @like.destroy if @like
+    redirect_to @blog_post
+  end
+
   private
 
   def blog_post_params
