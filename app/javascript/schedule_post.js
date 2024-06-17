@@ -17,3 +17,18 @@ document.addEventListener("turbo:load", function() {
         scheduleCheckbox.addEventListener("change", toggleDatetimeSelect);
     }
 });
+
+
+
+document.addEventListener("turbo:load", () => {
+    document.querySelectorAll("form[data-remote=true]").forEach(form => {
+        form.addEventListener("ajax:success", event => {
+            const [data, status, xhr] = event.detail;
+            const blogPostId = form.action.match(/\/blog_posts\/(\d+)/)[1];
+            const blogPostElement = document.querySelector(`#blog_post_${blogPostId}`);
+            if (blogPostElement) {
+                blogPostElement.innerHTML = xhr.responseText;
+            }
+        });
+    });
+});
