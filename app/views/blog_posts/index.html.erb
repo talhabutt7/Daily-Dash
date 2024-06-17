@@ -1,28 +1,31 @@
-<div class="mb-6">
+<div class="flex justify-between items-center mb-8">
+  <h1 class="text-4xl font-extrabold text-gray-900">DailyDrift Blogs</h1>
   <% if user_signed_in? %>
-    <%= link_to "New Post", new_blog_post_path, class: "inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to "New Post", new_blog_post_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105" %>
   <% end %>
 </div>
 
-<h1 class="text-4xl font-bold mb-6">Blogs</h1>
-
-<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   <% @blog_posts.each do |blog_post| %>
-    <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-      <h2 class="text-2xl font-semibold mb-2">
-        <%= link_to blog_post.title, blog_post, class: "text-blue-600 hover:underline" %>
-      </h2>
-      <div class="mb-4 text-sm text-gray-500">
-        <% if blog_post.draft? %>
-          <span class="inline-block px-2 py-1 rounded bg-yellow-100 text-yellow-700">Draft</span>
-        <% elsif blog_post.scheduled? %>
-          <span class="inline-block px-2 py-1 rounded bg-blue-100 text-blue-700">Scheduled</span>
-        <% elsif blog_post.published? %>
-          <span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700">Published</span>
-        <% end %>
+    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+      <div class="p-6">
+        <h2 class="text-2xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition duration-300">
+          <%= link_to blog_post.title, blog_post, class: "hover:underline" %>
+        </h2>
+        <div class="mb-4 text-sm text-gray-500 flex items-center">
+          <% if blog_post.draft? %>
+            <span class="inline-block px-2 py-1 rounded bg-yellow-100 text-yellow-700">Draft</span>
+          <% elsif blog_post.scheduled? %>
+            <span class="inline-block px-2 py-1 rounded bg-blue-100 text-blue-700">Scheduled</span>
+          <% elsif blog_post.published? %>
+            <span class="inline-block px-2 py-1 rounded bg-green-100 text-green-700">Published</span>
+          <% end %>
+          <span class="ml-3"><%= blog_post.created_at.strftime("%B %d, %Y") %></span>
+        </div>
+        <p class="text-gray-700 leading-relaxed line-clamp-3"><%= simple_format blog_post.content, class: "text-gray-700" %></p>
       </div>
-      <div class="text-gray-700 leading-relaxed">
-        <%= simple_format blog_post.content, class: "text-gray-700" %>
+      <div class="p-4 bg-gray-100 flex justify-end">
+        <%= link_to "Read more", blog_post, class: "text-blue-500 hover:underline font-semibold" %>
       </div>
     </div>
   <% end %>
