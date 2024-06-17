@@ -15,6 +15,13 @@ class BlogPostsController < ApplicationController
 
   def create
     @blog_post = current_user.blog_posts.build(blog_post_params)
+
+    if params[:save_as_draft]
+      @blog_post.published_at = nil
+    elsif @blog_post.published_at.blank?
+      @blog_post.published_at = Time.zone.now
+    end
+
     if @blog_post.save
       redirect_to @blog_post, notice: 'Blog post was successfully created.'
     else
@@ -58,6 +65,7 @@ class BlogPostsController < ApplicationController
   def blog_post_params
     params.require(:blog_post).permit(:title, :content, :published_at)
   end
+
   def set_blog_post
     @blog_post = user_signed_in? ? BlogPost.find(params[:id]) : BlogPost.published.find(params[:id])
   rescue ActiveRecord::RecordNotFound
