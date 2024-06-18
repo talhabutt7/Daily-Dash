@@ -3,6 +3,8 @@ class BlogPost < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_rich_text :content
+  has_one_attached :image
+
   validates :title, :content, presence: true
 
   scope :sorted, -> { order(published_at: :desc, updated_at: :desc) }
