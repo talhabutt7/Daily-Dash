@@ -1,0 +1,14 @@
+<!-- app/views/shared/_image_upload.html.erb -->
+<div class="profile-image-upload mb-4 relative">
+  <div class="profile-image-placeholder w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center relative cursor-pointer">
+    <% if form.object.profile_image.attached? %>
+      <%= image_tag form.object.profile_image.variant(resize: "150x150!"), id: 'profile-image', class: 'w-full h-full object-cover rounded-full' %>
+    <% else %>
+      <img src="https://via.placeholder.com/150" alt="Profile image placeholder" id="profile-image" class="w-full h-full object-cover rounded-full">
+    <% end %>
+    <input type="file" id="profile_image_input" class="absolute inset-0 opacity-0 cursor-pointer" name="user[profile_image]" accept="image/*">
+    <div class="hover-overlay absolute inset-0 bg-black opacity-50 flex items-center justify-center rounded-full hidden">
+      <span class="text-white">Choose Profile Image</span>
+    </div>
+  </div>
+</div>
