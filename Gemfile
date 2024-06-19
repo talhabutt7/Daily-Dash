@@ -81,3 +81,5 @@ gem 'sidekiq'
 # Redis
 gem 'redis'
 
+gem 'active_storage_validations'
+
