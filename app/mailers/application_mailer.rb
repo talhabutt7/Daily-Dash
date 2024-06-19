@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default to: ENV['RECIPIENT_EMAIL']
   layout "mailer"
 end
