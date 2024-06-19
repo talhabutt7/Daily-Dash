@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'feedback/new'
-  get 'feedback/create'
+  get 'feedback', to: 'feedback#new'
+  post 'feedback', to: 'feedback#create'
 
 end
