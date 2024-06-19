@@ -39,3 +39,10 @@
 /vips-8.12.2/
 /vips-8.12.2.tar.gz
 /install.sh
+
+/redis-7.2.4.tar.gz
+/redis-7.2.4
+/dump.rdb
+
+# Ignore dotenv environment file
+.env
