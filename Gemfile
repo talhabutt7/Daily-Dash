@@ -77,7 +77,7 @@ gem "tailwindcss-rails", "~> 2.6"
 gem "aws-sdk-s3", require: false
 
 # Background processing
-gem 'sidekiq'
+gem 'sidekiq', '~> 6.0'
 
 # Redis
 gem 'redis'

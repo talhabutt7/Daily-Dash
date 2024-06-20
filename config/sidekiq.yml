@@ -4,3 +4,13 @@
 :queues:
   - default
   - mailers
+
+development:
+  :url: redis://localhost:6379/0
+
+production:
+  :url: <%= ENV['REDIS_URL'] %>
+
+:schedule:
+  WeeklyEmailJob:
+    cron: '0 0 * * 0' # Every Sunday at midnight
