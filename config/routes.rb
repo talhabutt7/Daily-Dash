@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "blog_posts#index"
 
-  devise_for :users
-  # devise_for :users, controllers: {
-  #   registrations: 'users/registrations'
-  # }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   # resources :blog_posts
   # get "/blog_posts/new", to: "blog_posts#new", as: "new_blog_post"
