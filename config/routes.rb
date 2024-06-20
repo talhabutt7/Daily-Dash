@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   # post "/blog_posts", to: "blog_posts#create", as: "blog_posts"
 
   resources :blog_posts do
+    collection do
+      get 'my_blogs'
+    end
     member do
       post 'like'
       delete 'unlike'
