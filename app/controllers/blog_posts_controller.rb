@@ -1,11 +1,11 @@
 # app/controllers/blog_posts_controller.rb
 
 class BlogPostsController < ApplicationController
-  before_action :set_blog_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted
+    @blog_posts = BlogPost.published.sorted
   end
 
   def show
@@ -47,23 +47,8 @@ class BlogPostsController < ApplicationController
     redirect_to root_path, notice: 'Blog post was successfully destroyed.'
   end
 
-  def like
-    unless @blog_post.likes.exists?(user_id: current_user.id)
-      @blog_post.likes.create(user: current_user)
-    end
-    respond_to do |format|
-      format.html { redirect_to @blog_post }
-      format.js { render partial: "blog_posts/like_buttons", locals: { blog_post: @blog_post } }
-    end
-  end
-
-  def unlike
-    like = @blog_post.likes.find_by(user: current_user)
-    like&.destroy
-    respond_to do |format|
-      format.html { redirect_to @blog_post }
-      format.js { render partial: "blog_posts/like_buttons", locals: { blog_post: @blog_post } }
-    end
+  def my_blogs
+    @blog_posts = current_user.blog_posts
   end
 
   private
