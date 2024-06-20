@@ -6,8 +6,11 @@
       <%= render 'partials/image_upload', form: f %>
 
       <div class="mb-4">
-        <%= f.label :username, class: "block text-gray-700" %>
-        <%= f.text_field :username, autofocus: true, class: "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" %>
+        <%= f.label :username_display, class: "block text-gray-700" %>
+        <div class="flex">
+          <span class="inline-flex items-center px-3 border border-r-0 rounded-l-md bg-gray-50 text-gray-500">@</span>
+          <%= f.text_field :username_display, value: "#{resource.username}", class: "flex-1 block w-full border rounded-none rounded-r-lg focus:ring-green-500 focus:border-green-500" %>
+        </div>
       </div>
 
       <div class="mb-4">
