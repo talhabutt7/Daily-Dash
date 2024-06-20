@@ -84,3 +84,6 @@ gem 'redis'
 
 gem 'active_storage_validations'
 
+gem 'whenever', require: false
+
+
