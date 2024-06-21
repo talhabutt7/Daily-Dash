@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+draft:
+  title: Draft Post
+  published_at: null
+  user: user_one
+
+scheduled:
+  title: Scheduled Post
+  published_at: <%= 1.years.from_now %>
+  user: user_one
+
+published:
+  title: Published Post
+  published_at: <%= 1.years.ago %>
+  user: user_two
