@@ -65,7 +65,7 @@ Rails.application.configure do
 
   # Use SMTP for sending emails
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_oprodptions = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
