@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,25 +15,19 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # resources :blog_posts
-  # get "/blog_posts/new", to: "blog_posts#new", as: "new_blog_post"
-  # get "/blog_posts/:id", to: "blog_posts#show", as: "blog_post"
-  # patch "/blog_posts/:id", to: "blog_posts#update"
-  # delete "/blog_posts/:id", to: "blog_posts#destroy"
-  # get "/blog_posts/:id/edit", to: "blog_posts#edit", as: "edit_blog_post"
-  # post "/blog_posts", to: "blog_posts#create", as: "blog_posts"
-
   resources :blog_posts do
     collection do
       get 'my_blogs'
-    end
-    member do
-      post 'like'
-      delete 'unlike'
     end
   end
 
   get 'feedback', to: 'feedback#new'
   post 'feedback', to: 'feedback#create'
 
+  # API Routes
+  namespace :api do
+    namespace :v1 do
+      resources :blog_posts, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
 end
