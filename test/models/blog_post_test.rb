@@ -1,16 +1,27 @@
+# test/models/blog_post_test.rb
 require "test_helper"
 
 class BlogPostTest < ActiveSupport::TestCase
+  setup do
+    @draft = blog_posts(:draft)
+    @scheduled = blog_posts(:scheduled)
+    @published = blog_posts(:published)
+
+    @draft.content = "Draft Content"
+    @scheduled.content = "Scheduled Content"
+    @published.content = "Published Content"
+  end
+
   test "draft? returns true for draft blog post" do
-    assert blog_posts(:draft).draft?
+    assert @draft.draft?
   end
 
   test "draft? returns false for published blog post" do
-    refute blog_posts(:published).draft?
+    refute @published.draft?
   end
 
   test "draft? returns false for scheduled blog post" do
-    refute blog_posts(:scheduled).draft?
+    refute @scheduled.draft?
   end
 
   test "published? returns true for published blog post" do
@@ -38,15 +49,20 @@ class BlogPostTest < ActiveSupport::TestCase
   end
 
   def new_draft_post
-    BlogPost.new(published_at: nil)
+    post = BlogPost.new(published_at: nil, user: users(:user_one))
+    post.content = "New Draft Content"
+    post
   end
 
   def new_scheduled_post
-    BlogPost.new(published_at: 1.year.from_now)
+    post = BlogPost.new(published_at: 1.year.from_now, user: users(:user_one))
+    post.content = "New Scheduled Content"
+    post
   end
 
   def new_published_post
-    BlogPost.new(published_at: 1.year.ago)
+    post = BlogPost.new(published_at: 1.year.ago, user: users(:user_two))
+    post.content = "New Published Content"
+    post
   end
-
 end

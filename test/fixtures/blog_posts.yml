@@ -2,15 +2,15 @@
 
 draft:
   title: Draft Post
-  body: MyText
   published_at: null
+  user: user_one
 
 scheduled:
   title: Scheduled Post
-  body: MyText
-  published_at: <%= 1.years.from_now %>>
+  published_at: <%= 1.years.from_now %>
+  user: user_one
 
 published:
   title: Published Post
-  body: MyText
-  published_at: <%= 1.years.ago %>>
+  published_at: <%= 1.years.ago %>
+  user: user_two
