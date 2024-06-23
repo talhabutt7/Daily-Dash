@@ -2,7 +2,21 @@
 <div class="min-h-screen flex items-center justify-center">
   <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-3xl font-bold text-center mb-6">Register</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
+
+      <div class="mb-6 text-center">
+        <div class="relative inline-block">
+          <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-200">
+            <%= image_tag(resource.profile_image.attached? ? url_for(resource.avatar) : "placeholder.jpg", id: "profile-image", class: "w-full h-full object-cover") %>
+          </div>
+          <label for="user_avatar" class="absolute bottom-0 right-0 text-white rounded-full p-1 cursor-pointer">
+            <svg class="h-8 w-8 text-gray-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            </svg>
+          </label>
+        </div>
+        <%= f.file_field :avatar, id: "user_avatar", class: "hidden" %>
+      </div>
 
       <div class="mb-4">
         <%= f.label :username, class: "block text-gray-700" %>
@@ -75,3 +89,13 @@
     </div>
   </div>
 </div>
+
+<script>
+    document.getElementById("user_avatar").addEventListener("change", function() {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("profile-image").src = e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+    });
+</script>
