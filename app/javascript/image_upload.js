@@ -1,25 +1,9 @@
-// app/javascript/packs/application.js
-document.addEventListener("DOMContentLoaded", () => {
-    const profileImageInput = document.getElementById('profile_image_input');
-    const profileImage = document.getElementById('profile-image');
-    const hoverOverlay = document.querySelector('.hover-overlay');
 
-    profileImageInput.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                profileImage.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    profileImageInput.parentElement.addEventListener('mouseover', () => {
-        hoverOverlay.classList.remove('hidden');
-    });
-
-    profileImageInput.parentElement.addEventListener('mouseout', () => {
-        hoverOverlay.classList.add('hidden');
-    });
+// JavaScript for uploading profile image
+document.getElementById("user_avatar").addEventListener("change", function () {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementById("profile-image").src = e.target.result;
+    };
+    reader.readAsDataURL(this.files[0]);
 });
