@@ -7,10 +7,10 @@
       <div class="mb-6 text-center">
         <div class="relative inline-block">
           <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-200">
-            <%= image_tag(resource.profile_image.attached? ? url_for(resource.avatar) : "placeholder.jpg", id: "profile-image", class: "w-full h-full object-cover") %>
+            <%= image_tag(resource.profile_image.attached? ? url_for(resource.profile_image) : "placeholder.jpg", id: "profile-image", class: "w-full h-full object-cover") %>
           </div>
           <label for="user_avatar" class="absolute bottom-0 right-0 text-white rounded-full p-1 cursor-pointer">
-            <svg class="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
             </svg>
           </label>
