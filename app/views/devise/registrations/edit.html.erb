@@ -5,6 +5,20 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div class="mb-6 text-center">
+      <div class="relative inline-block">
+        <div class="w-32 h-32 rounded-full overflow-hidden bg-gray-200">
+          <%= image_tag(resource.profile_image.attached? ? url_for(resource.profile_image) : "placeholder.jpg", id: "profile-image", class: "w-full h-full object-cover") %>
+        </div>
+        <label for="user_avatar" class="absolute bottom-0 right-0 text-white rounded-full p-1 cursor-pointer">
+          <svg class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+        </label>
+      </div>
+      <%= f.file_field :profile_image, id: "user_avatar", class: "hidden" %>
+    </div>
+
     <div class="mb-4">
       <%= f.label :first_name, class: "block text-sm font-medium text-gray-700" %>
       <%= f.text_field :first_name, class: "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm" %>
